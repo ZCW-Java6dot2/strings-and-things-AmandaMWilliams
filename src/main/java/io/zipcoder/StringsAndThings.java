@@ -15,7 +15,19 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        String endsInY = "";
+        String endsInZ = "";
+        Integer output = 0;
+        switch(input){
+            case endsInY:
+                output += 1;
+                break;
+            case endsInZ:
+                output += 1;
+                break;
+            default:
+                output += 0;
+        } return output;
     }
 
     /**

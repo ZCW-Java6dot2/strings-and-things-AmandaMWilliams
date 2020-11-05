@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 /**
  * @author tariq
  */
@@ -60,17 +62,31 @@ public class StringsAndThings {
 
         for (int i = 0; i < individualLetterArray.length; i++) {  // iterate through
             String letter = individualLetterArray[i];     // call each element "letter"
-            String nextLetter = individualLetterArray[i+1];
-            String thirdLetterT = individualLetterArray [i+2];
+            String nextLetter = individualLetterArray[i + 1];
+            String thirdLetterT = individualLetterArray[i + 2];
+            Boolean isLetterI = "i".equals(letter);
+            Boolean isNextLetterS = "s".equals(nextLetter);
+            Boolean isLetterN = "n".equals(letter);
+            Boolean isNextLetterO = "o".equals(nextLetter);
+            Boolean isThirdLetter = "t".equals(thirdLetterT);
+            Boolean isWordIs = isLetterI && isNextLetterS;
+            Boolean isWordNot = isLetterN && isNextLetterO && isThirdLetter;
 
-            if (letter == "i" && nextLetter == "s") {  // find "is"
+            if (isWordIs) {
+                countingIs++;
+            } else if (isWordNot) {
+                countingNot++;
+            }
+        }
+
+            /*if (letter == "i" && nextLetter == "s") {  // find "is"
                 countingIs += 1;          // add 1 to the "is" counter
             } else if (letter == "n" && nextLetter == "o" && thirdLetterT == "t") {  //find "not"
                 countingNot += 1;
             } else {
                 countingIs += 0;
             }
-        }
+        }*/
         if (countingIs == countingNot) {
             return true;
         } else {

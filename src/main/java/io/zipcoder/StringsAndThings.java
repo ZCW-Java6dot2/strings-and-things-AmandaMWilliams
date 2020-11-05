@@ -14,20 +14,18 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        String endsInY = "";
-        String endsInZ = "";
+    public Integer countYZ(String input) {
+        String[] wordArray = input.split("\\s+"); //Split the sting at the space into an array of individual words
         Integer output = 0;
-        switch(input){
-            case endsInY:
-                output += 1;
-                break;
-            case endsInZ:
-                output += 1;
-                break;
-            default:
-                output += 0;
-        } return output;
+        for (int i = 0; i < wordArray.length; i++) {  //iterate through the array elements
+            if (input.charAt(wordArray.length) == 'y') {  //if the character at the end of the element is y
+            output += 1;                               // add 1 to the count
+            } else if (input.charAt(wordArray.length) == 'z') {  //else if the char at the end of the element is z
+            output += 1;                           // add 1 to the count
+            } else {                    // if it's neither
+            output += 0;             // add 0 (nothing) to the count
+            }
+        } return output;          // return the count
     }
 
     /**
@@ -40,7 +38,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        String modifiedString = base.replace(remove,""); //replace the "remove" in the base with nothing
+        return modifiedString;               //return what's left
     }
 
     /**
@@ -51,8 +50,27 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
-    public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+    public Boolean containsEqualNumberOfIsAndNot(String input) {
+        String[] individualLetterArray = input.split(""); //split the whole sentence into an array of letters
+        Integer countingIs = 0;              //make a counter for occurances of the word "is"
+        Integer countingNot = 0;           // make a counter for occurance of the word "not"
+
+        for (int i = 0; i < individualLetterArray.length; i++) {  // iterate through
+            String letter = individualLetterArray[i];     // call each element "letter"
+
+            if (letter == "i" && letter+1 == "s") {  // find "is"
+                countingIs += 1;          // add 1 to the "is" counter
+            } else if (letter == "n" && letter+1 == "o" && letter+2 == "t") {  //find "not"
+                countingNot += 1;
+            } else {
+                countingIs += 0;
+            }
+        }
+        if (countingIs == countingNot) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

@@ -56,11 +56,18 @@ public class StringsAndThings {
      * containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input) {
-        String[] individualLetterArray = input.split(""); //split the whole sentence into an array of letters
-        Integer countingIs = 0;              //make a counter for occurances of the word "is"
-        Integer countingNot = 0;           // make a counter for occurances of the word "not"
+        input = " " + input + " ";
+        String[] isArray = input.split("is");
+        String[] notArray = input.split("not");
 
-        for (int i = 0; i < individualLetterArray.length; i++) {  // iterate through
+        return isArray.length == notArray.length;
+    }
+
+        /*String[] individualLetterArray = input.split(""); //split the whole sentence into an array of letters
+        Integer countingIs = 0;              //make a counter for occurances of the word "is"
+        Integer countingNot = 0;           // make a counter for occurances of the word "not"*/
+
+        /*for (int i = 0; i < individualLetterArray.length; i++) {  // iterate through
             String letter = individualLetterArray[i];     // call each element "letter"
             String nextLetter = individualLetterArray[i + 1];
             String thirdLetterT = individualLetterArray[i + 2];
@@ -79,20 +86,20 @@ public class StringsAndThings {
             }
         }
 
-            /*if (letter == "i" && nextLetter == "s") {  // find "is"
+            if (letter == "i" && nextLetter == "s") {  // find "is"
                 countingIs += 1;          // add 1 to the "is" counter
             } else if (letter == "n" && nextLetter == "o" && thirdLetterT == "t") {  //find "not"
                 countingNot += 1;
             } else {
                 countingIs += 0;
             }
-        }*/
+        }
         if (countingIs == countingNot) {
             return true;
         } else {
             return false;
         }
-    }
+    }*/
 
     /**
      * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
